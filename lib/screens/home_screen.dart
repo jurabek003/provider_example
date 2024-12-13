@@ -17,7 +17,11 @@ class HomeScreen extends StatelessWidget {
           Card(
             child: Padding(
               padding: EdgeInsets.all(15.0),
-              child: Text('${context.watch<StateViewModel>().state}',style: TextStyle(fontSize: 25,fontWeight: FontWeight.w900),),
+              child: Consumer<StateViewModel>(
+                builder: (context, stateViewModel, child){
+                  return Text("${stateViewModel.state}",style: TextStyle(fontSize: 25,fontWeight: FontWeight.w900));
+                },
+              ),
             ),
           ),
       
